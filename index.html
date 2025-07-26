@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>BioMorphosense – Simulação</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>BioMorphosense (Simulação Matemática)</h1>
+    <p>Estimativa de gordura corporal com base em dados do usuário.</p>
+  </header>
+  <section>
+    <h2>1. Dados Pessoais</h2>
+    <label>Idade: <input id="age" type="number" min="1" max="120" /></label><br/>
+    <label>Sexo: 
+      <select id="sex">
+        <option value="M">Masculino</option>
+        <option value="F">Feminino</option>
+      </select>
+    </label><br/>
+    <label>Altura (cm): <input id="height" type="number" /></label><br/>
+    <label>Peso (kg): <input id="weight" type="number" /></label><br/>
+    <label>Circunferência da cintura (cm): <input id="waist" type="number" /></label><br/>
+  </section>
+  <section>
+    <h2>2. Estimar % de gordura corporal</h2>
+    <button id="calculate-btn">Calcular Percentual</button>
+  </section>
+  <section id="result" class="hidden">
+    <h2>Resultado</h2>
+    <p>% Gordura estimado: <span id="fat-percent">—</span> %</p>
+    <p>Margem de erro simulada: ± <span id="fat-error">—</span> %</p>
+    <p>Categoria: <span id="category">—</span></p>
+    <div id="feedback"></div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
