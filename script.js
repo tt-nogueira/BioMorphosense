@@ -8,17 +8,17 @@ const metabolic = document.getElementById('metabolic');
 const bias = document.getElementById('bias-status');
 
 simulate.addEventListener('click', () => {
-  const fat = (Math.random()*15 + 12).toFixed(1);
-  const err = (Math.random()*1 + 0.5).toFixed(1);
-  const leanMass = (Math.random()*35 + 45).toFixed(1);
-  const whr = (Math.random()*0.2 + 0.85).toFixed(2);
-  const met = (Math.random()*400 + 1600).toFixed(0);
-  const statusTxt = [
-    'Representativo (alto grau confiança)',
+  const fat = (Math.random() * 15 + 12).toFixed(1);
+  const err = (Math.random() * 1 + 0.5).toFixed(1);
+  const leanMass = (Math.random() * 35 + 45).toFixed(1);
+  const whr = (Math.random() * 0.2 + 0.85).toFixed(2);
+  const met = (Math.random() * 400 + 1600).toFixed(0);
+  const statusList = [
+    'Representativo (alta confiança)',
     'Fora da faixa validada',
-    'Nivel de confiança moderado'
+    'Confiança moderada'
   ];
-  const status = statusTxt[Math.floor(Math.random()*statusTxt.length)];
+  const status = statusList[Math.floor(Math.random() * statusList.length)];
 
   fatP.textContent = fat;
   fatE.textContent = err;
@@ -29,31 +29,30 @@ simulate.addEventListener('click', () => {
   bias.textContent = status;
 });
 
-// Three.js viewer básico
+// Three.js minimal visualization
 const canvas = document.getElementById('viewer-canvas');
-const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xe4e9f0);
+scene.background = new THREE.Color(0xe1e4e9);
 const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
 camera.position.set(0, 1.6, 2);
 
-const hemi = new THREE.HemisphereLight(0xffffff, 0x555555, 1);
-scene.add(hemi);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x555555));
 const dir = new THREE.DirectionalLight(0xffffff, 0.8);
-dir.position.set(2,2,1);
+dir.position.set(2, 2, 1);
 scene.add(dir);
 
 const loader = new THREE.GLTFLoader();
 loader.load('https://raw.githubusercontent.com/hmthanh/3d-human-model/main/Thanh.glb', gltf => {
   const model = gltf.scene;
-  model.scale.set(1.1,1.1,1.1);
+  model.scale.set(1.1, 1.1, 1.1);
   scene.add(model);
 });
 
-function animate(){
+function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
@@ -61,7 +60,7 @@ animate();
 
 window.addEventListener('resize', () => {
   const w = canvas.clientWidth, h = canvas.clientHeight;
-  camera.aspect = w/h;
+  camera.aspect = w / h;
   camera.updateProjectionMatrix();
-  renderer.setSize(w,h);
+  renderer.setSize(w, h);
 });
