@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BioMorphosense – Biometric Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>BioMorphosense</h1>
+    <p class="subtitle">Ethical • Accurate • Transparent</p>
+  </header>
+  <div id="main">
+    <aside id="panel">
+      <section class="intro">
+        <h2>Por que este projeto existe?</h2>
+        <p>BioMorphosense é um software GRATUITO e ABERTO, desenvolvido para superar as limitações de modelos como SMPL ou SHAPED.</p>
+        <ul>
+          <li>Evita uso de malhas SMPL que não capturam variações locais ou volume interno;</li>
+          <li>Operação totalmente local, sem envio de imagens;</li>
+          <li>Transparência total: margem de erro, análise de viés, escopo de dados.</li>
+        </ul>
+      </section>
+      <section class="metrics">
+        <h2>Métricas</h2>
+        <div class="card">
+          <div class="label">Fat % ± Error</div>
+          <div class="value"><span id="fat-percent">‑</span> % ± <span id="fat-error">‑</span> %</div>
+        </div>
+        <div class="card">
+          <div class="label">Lean Mass</div>
+          <div class="value"><span id="lean-mass">‑</span> kg</div>
+        </div>
+        <div class="card">
+          <div class="label">Waist‑Hip Ratio</div>
+          <div class="value"><span id="whr">‑</span></div>
+        </div>
+        <div class="card">
+          <div class="label">Cardio Risk Index</div>
+          <div class="value"><span id="cardio-risk">‑</span></div>
+        </div>
+        <div class="card">
+          <div class="label">Metabolic Estimate</div>
+          <div class="value"><span id="metabolic">‑</span> kcal/day</div>
+        </div>
+      </section>
+      <section class="bias">
+        <h2>Status de Viés / Validação</h2>
+        <p id="bias-status">‑</p>
+      </section>
+      <button id="simulate-btn">Simular Scan</button>
+    </aside>
+    <section id="view-area">
+      <canvas id="viewer-canvas"></canvas>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
