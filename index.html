@@ -1,54 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BioMorphosense – Composição Corporal Ética e Precisa</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BioMorphosense – Clinically Oriented Interface</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>BioMorphosense</h1>
-    <p class="subtitle">Ethically Transparent • Clinically Oriented</p>
+    <p class="subtitle">Ethically Transparent · Clinically Oriented</p>
   </header>
   <div id="main">
     <aside id="panel">
-      <section class="intro">
-        <h2>Justificativa do Projeto</h2>
-        <p>Software gratuito e open‑source, criado para corrigir limitações técnicas e éticas de frameworks como SMPL ou SHAPED, especialmente na análise de composição corporal.</p>
-        <ul>
-          <li>Avoid templates com variação inadequada (SMPL);</li>
-          <li>Inferência local, sem envio de imagens;</li>
-          <li>Resultados auditáveis: margem de erro, análise de viés e escopo de dados.</li>
-        </ul>
-      </section>
-      <section class="metrics">
-        <h2>Métricas</h2>
+      <h2>Métricas</h2>
+      <div class="cards">
         <div class="card">
-          <div class="label">Gordura Corporal (<i>Fat %</i>) ± Erro</div>
-          <div class="value"><span id="fat-percent">‑</span> % ± <span id="fat-error">‑</span> %</div>
+          <div class="label">Fat % ± Error</div>
+          <div class="value"><span id="fat-percent">‑</span>% ± <span id="fat-error">‑</span>%</div>
         </div>
         <div class="card">
           <div class="label">Lean Mass</div>
-          <div class="value"><span id="lean-mass">‑</span> kg</div>
+          <div class="value"><span id="lean-mass">‑</span> kg</div>
         </div>
         <div class="card">
           <div class="label">Waist‑Hip Ratio</div>
           <div class="value"><span id="whr">‑</span></div>
         </div>
         <div class="card">
-          <div class="label">Cardiovascular Risk Index</div>
+          <div class="label">Cardiovascular Index</div>
           <div class="value"><span id="cardio-risk">‑</span></div>
         </div>
         <div class="card">
-          <div class="label">Estimativa Metabólica</div>
-          <div class="value"><span id="metabolic">‑</span> kcal/dia</div>
+          <div class="label">Metabolic Estimate</div>
+          <div class="value"><span id="metabolic">‑</span> kcal/day</div>
         </div>
-      </section>
-      <section class="bias">
-        <h2>Status de Viés / Validação</h2>
-        <p id="bias-status">‑</p>
-      </section>
+      </div>
+      <div class="bias">
+        <div>Status de Viés / Validação</div>
+        <div id="bias-status">‑</div>
+      </div>
       <button id="simulate-btn">Simular Scan</button>
     </aside>
     <section id="view-area">
